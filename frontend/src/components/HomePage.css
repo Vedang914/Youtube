@@ -1,0 +1,170 @@
+/* Ensure the page fills the entire width and height without overflow */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Root setup for body and html */
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    background-color: black; /* Ensure background color is set */
+}
+
+/* Main layout for the homepage */
+.fullHomePage {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 100vh;
+}
+
+/* Ensuring proper space for the content */
+.homePage {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    margin-left: 267px;
+    min-height: 100vh;
+}
+
+/* Adjust the options section */
+.homePage_options {
+    display: flex;
+    position: fixed;
+    top: 56px;
+    z-index: 1;
+    width: calc(100% - 267px); /* Adjust width based on sideNavbar */
+    gap: 10px;
+    flex-shrink: 0;
+    height: auto;
+    overflow-x: scroll;
+    background-color: black;
+    padding-bottom: 10px; /* Space at bottom for options */
+}
+
+/* Hide the scrollbar */
+.homePage_options::-webkit-scrollbar {
+    display: none;
+}
+
+/* Each option box */
+.homePage_option {
+    flex: 0 0 auto;
+    height: 30px;
+    padding: 1px 10px;
+    background-color: rgb(42, 42, 42);
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* Main grid area for the videos */
+.home_mainPage {
+    display: grid;
+    background-color: black;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible grid to avoid cutoff */
+    padding: 90px 10px 20px 10px; /* Adjust padding for proper spacing */
+    min-height: calc(100vh - 90px); /* Ensure content covers entire viewport */
+}
+
+/* Version without links */
+.home_mainPageWithoutLink {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible grid for better layout */
+    padding: 90px 10px 20px 10px;
+    background-color: black;
+    min-height: calc(100vh - 90px); /* Ensure content covers entire viewport */
+}
+
+/* Styling for individual YouTube video blocks */
+.youtube_Video {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    height: 316px;
+}
+
+/* Thumbnail box for video */
+.youtube_thumbnailBox {
+    width: 100%;
+    position: relative;
+    height: 216px;
+}
+
+/* Proper scaling for the video thumbnail */
+.youtube_thumbnailPic {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover; /* Ensures image covers container */
+    object-position: center;
+}
+
+/* Timing overlay on the thumbnail */
+.youtube_timingThumbnail {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: 1px 2px;
+    background-color: rgb(42, 42, 42);
+    border-radius: 5px;
+}
+
+/* Title box for the video */
+.youtubeTitleBox {
+    display: flex;
+    padding-top: 10px;
+}
+
+/* Profile picture box */
+.youtubeTitleBoxProfile {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Profile picture thumbnail */
+.youtube_thumbnail_Profile {
+    width: 80%;
+    border-radius: 100%;
+}
+
+/* Box for title and channel information */
+.youtubeTitleBox_Title {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Video title styling */
+.youtube_videoTitle {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* Channel name styling */
+.youtube_channelName {
+    margin-top: 5px;
+    font-size: 18px;
+    color: rgb(170, 170, 170);
+}
+
+/* Video views styling */
+.youtubeVideo_views {
+    font-size: 14px;
+    color: rgb(170, 170, 170);
+}
