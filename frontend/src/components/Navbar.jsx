@@ -8,7 +8,7 @@ import VideoCallIcon from "@mui/icons-material/VideoCall";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import PersonIcon from "@mui/icons-material/Person";
 
-const Navbar = () => {
+const Navbar = ({setSideNavbarFunc,sideNavbar}) => {
   const [userPic, setUserPic] = useState(
     "https://th.bing.com/th/id/OIP.Wy2uo_y-ttULYs4chLmqSAAAAA?rs=1&pid=ImgDetMain"
   );
@@ -19,11 +19,15 @@ const Navbar = () => {
     setNavbarModal(prev=>!prev)
   }
 
+  const sideNavbarFunc=()=>{
+    setSideNavbarFunc(!sideNavbar)
+  }
+
   return (
     <div className="navbar">
       <div className="navbar-left">
         <div className="navbarHamberger">
-          <MenuIcon sx={{ color: "white" }} />
+          <MenuIcon onClick={sideNavbarFunc} sx={{ color: "white" }} />
         </div>
 
         <div className="navbar_youtubeImg">
