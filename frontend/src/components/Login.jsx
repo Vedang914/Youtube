@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Link } from "react-router-dom";
 
 const Login = ({ setLoginModal }) => {
+  const [loginField, setLoginField] = useState({ userName: "", password: "" });
+  console.log(loginField)
+
+  const handleOnChangeInput = (event, name) => {
+    setLoginField({
+      ...loginField,
+      [name]: event.target.value,
+    });
+  };
+
   return (
     <div className="login">
       <div className="login_card">
         <div className="titleCard_login">
-          <YouTubeIcon sx={{ fontSize: "54px" }} className="login_youtubeImage" />
+          <YouTubeIcon
+            sx={{ fontSize: "54px" }}
+            className="login_youtubeImage"
+          />
           Login
         </div>
 
@@ -17,30 +30,34 @@ const Login = ({ setLoginModal }) => {
             <input
               type="text"
               placeholder="Username"
+              value={loginField.userName}
+              onChange={(e) => handleOnChangeInput(e, "userName")}
               className="userNameLoginUserName"
             />
           </div>
 
           <div className="userNameLogin">
-            {/* Set the input type to password */}
             <input
               type="password"
               placeholder="Password"
+              value={loginField.password}
+              onChange={(e) => handleOnChangeInput(e, "password")}
               className="userNameLoginUserName"
             />
           </div>
         </div>
 
         <div className="login_buttons">
-          <div className="login-btn">
-            Login
-          </div>
+          <div className="login-btn">Login</div>
 
-          <Link to={"/signup"} className="login-btn" onClick={() => setLoginModal(false)}>
+          <Link
+            to={"/signup"}
+            className="login-btn"
+            onClick={() => setLoginModal(false)}
+          >
             SignUp
           </Link>
 
-          
           <div className="login-btn" onClick={() => setLoginModal(false)}>
             Cancel
           </div>

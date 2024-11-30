@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from 'react'
 import "./Video.css";
 import ThumbUpAltOutlinedIcon from "@mui/icons-material/ThumbUpAltOutlined";
 import ThumbDownAltOutlinedIcon from "@mui/icons-material/ThumbDownAltOutlined";
 import { Link } from 'react-router-dom';
 
 const Video = () => {
+  const [message, setMessage] = useState("");
+  console.log(message)
   return (
     <div className="video">
       <div className="videoPostSection">
@@ -79,6 +81,8 @@ const Video = () => {
                 <input
                   type="text"
                   placeholder="Add a Comment"
+                  value={message}
+                  onChange={(e)=>{setMessage(e.target.value)}}
                   className="addAcommentInput"
                 />
                 <div className="cancelSubmitComment">

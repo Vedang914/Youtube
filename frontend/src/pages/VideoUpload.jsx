@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState,useEffect } from 'react'
 import "./VideoUpload.css";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { Link,useNavigate } from 'react-router-dom';
 
 const VideoUpload = () => {
+
+  const [inputField, setInputField] = useState({ "title": "", "description": "", "videoLink": "", "thumbnail": "", "videoType": "" })
+
+  console.log(inputField)
+  const handleOnChangeInput = (event, name) => {
+    setInputField({
+        ...inputField, [name]: event.target.value
+    })
+}
   return (
     <div className="videoUpload">
       <div className="uploadBox">
@@ -16,18 +25,24 @@ const VideoUpload = () => {
           <input
             type="text"
             placeholder="Title of Video"
+            value={inputField.title}
+            onChange={(e)=>{handleOnChangeInput(e,"title")}}
             className="uploadFormInputs"
           />
 
           <input
             type="text"
             placeholder="Description"
+            value={inputField.description}
+            onChange={(e)=>{handleOnChangeInput(e,"description")}}
             className="uploadFormInputs"
           />
 
           <input
             type="text"
             placeholder="Category"
+            value={inputField.videoType}
+            onChange={(e)=>{handleOnChangeInput(e,"videoType")}}
             className="uploadFormInputs"
           />
 
