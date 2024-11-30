@@ -7,7 +7,7 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import VideoCallIcon from "@mui/icons-material/VideoCall";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import PersonIcon from "@mui/icons-material/Person";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from 'react-router-dom';
 
 const Navbar = ({setSideNavbarFunc,sideNavbar}) => {
   const [userPic, setUserPic] = useState(
@@ -15,9 +15,16 @@ const Navbar = ({setSideNavbarFunc,sideNavbar}) => {
   );
 
   const [navbarModal,setNavbarModal] = useState(false);
+  const navigate = useNavigate();
 
   const handleClickModal = ()=>{
     setNavbarModal(prev=>!prev)
+  }
+
+  const handleprofile =()=>{
+   
+    navigate(`/user/7697`);
+    setNavbarModal(false);
   }
 
   const sideNavbarFunc=()=>{
@@ -69,7 +76,7 @@ const Navbar = ({setSideNavbarFunc,sideNavbar}) => {
 
         { navbarModal &&
           <div className='navbar-modal'>
-            <div className="navbar-modal-option">Profile</div>
+            <div className="navbar-modal-option" onClick={handleprofile}>Profile</div>
             <div className="navbar-modal-option">Login</div>
             <div className="navbar-modal-option">Logout</div>
 
