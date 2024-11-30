@@ -9,8 +9,8 @@
 html, body {
     width: 100%;
     height: 100%;
-    overflow-x: hidden; /* Prevent horizontal overflow */
-    background-color: black; /* Ensure background color is set */
+    overflow-x: none; /* Prevent horizontal overflow  hidden to none*/
+    
 }
 
 /* Main layout for the homepage */
@@ -28,6 +28,14 @@ html, body {
     flex: 1;
     margin-left: 267px;
     min-height: 100vh;
+    overflow-y: scroll; /* Allow vertical scrolling */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+/* Hide the scrollbar for Webkit browsers (Chrome, Safari, etc.) */
+.homePage::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
 }
 
 /* Adjust the options section */
@@ -36,13 +44,14 @@ html, body {
     position: fixed;
     top: 56px;
     z-index: 1;
-    width: calc(100% - 267px); /* Adjust width based on sideNavbar */
+    width: 100%; /* Set to full width */
+    max-width: calc(100%-12px); /* Ensuring it doesn't overlap the sidebar */
     gap: 10px;
     flex-shrink: 0;
     height: auto;
     overflow-x: scroll;
     background-color: black;
-    padding-bottom: 10px; /* Space at bottom for options */
+    padding-bottom: 10px;
 }
 
 /* Hide the scrollbar */
@@ -73,6 +82,14 @@ html, body {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Flexible grid to avoid cutoff */
     padding: 90px 10px 20px 10px; /* Adjust padding for proper spacing */
     min-height: calc(100vh - 90px); /* Ensure content covers entire viewport */
+    overflow-y: scroll; /* Allow vertical scrolling */
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
+}
+
+/* Hide the scrollbar for Webkit browsers (Chrome, Safari, etc.) */
+.home_mainPage::-webkit-scrollbar {
+    display: none; /* Hide scrollbar */
 }
 
 /* Version without links */
@@ -168,3 +185,6 @@ html, body {
     font-size: 14px;
     color: rgb(170, 170, 170);
 }
+
+
+
