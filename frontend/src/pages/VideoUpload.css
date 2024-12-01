@@ -1,3 +1,11 @@
+html, body {
+    background-color: black; /* Ensure full-page background */
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Ensure it covers the full screen */
+}
+
+
 .videoUpload{
     padding-top: 56px;
     width: 100%;
